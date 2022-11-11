@@ -1,6 +1,6 @@
-# https://exercism.org/tracks/bash/exercises/two-fer
-
 #!/usr/bin/env bash
+
+# https://exercism.org/tracks/bash/exercises/two-fer
 
 main()
 {
