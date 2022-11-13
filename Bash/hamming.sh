@@ -4,26 +4,22 @@
 
 main()
 {
-	if [ "$#" -le 1 ]; then
+	if [[ "$#" -le 1 ]]; then
 		echo "Usage: hamming.sh <string1> <string2>"
-		exit 1
-    elif [ "$1" == "$2" ]; then
-        echo "0"
-    elif [ "${#1}" == "${#2}" ]; then
+		return 1
+    elif [[ "${#1}" == "${#2}" ]]; then
 		first_str=$1
-		second_str=$2		
-		str_len="${#1}"
+		second_str=$2
 		diff_count=0
-		for (( i=0; i<str_len; i++ )); do
-			if [ "${first_str:$i:1}" != "${second_str:$i:1}" ]; then
-				((diff_count++))
+		for (( i=0; i<"${#1}"; i++ )); do
+			if [[ "${first_str:$i:1}" != "${second_str:$i:1}" ]]; then
+				(( diff_count++ ))
 			fi
 		done
 		echo "$diff_count"	
-
-    elif [ "${#1}" != "${#2}" ]; then
+    elif [[ "${#1}" != "${#2}" ]]; then
 		echo "strands must be of equal length"
-		exit 1
+		return 1
 	fi
 }
 
